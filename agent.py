@@ -4,6 +4,7 @@ from resources.pod.collector import collect_pod_data
 from resources.deployment.collector import collect_deployment_data
 from resources.service.collector import collect_service_data
 from resources.ingress.collector import collect_ingress_data
+from resources.node.collector import collect_node_data
 
 from gemini_client import analyze_incident
 from formatter import print_output
@@ -43,6 +44,12 @@ def analyze(
 
         data = collect_ingress_data(
             namespace,
+            name
+    )
+
+    elif resource == "node":
+
+        data = collect_node_data(
             name
     )
 
